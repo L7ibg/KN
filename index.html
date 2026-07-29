@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>دعوة خطوبة — الدكتور عبدالقادر و المهندسة نور</title>
+<meta name="description" content="دعوة خطوبة فاخرة: يسرنا دعوتكم لحضور حفل خطوبة الدكتور عبدالقادر والمهندسة نور، الخميس ٣ سبتمبر ٢٠٢٦ — مزرعة الياسمين الأبيض، الجيلاوية، المسيب." />
+<meta name="theme-color" content="#fbf7f0" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="دعوة خطوبة — عبدالقادر و نور" />
+<meta property="og:description" content="يسرنا دعوتكم لمشاركتنا فرحتنا — الخميس ٣ سبتمبر ٢٠٢٦، مزرعة الياسمين الأبيض." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="fonts/fonts.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="is-locked">
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader" role="status" aria-label="جاري التحميل">
+  <div class="loader__inner">
+    <svg class="monogram" viewBox="0 0 200 200" aria-hidden="true">
+      <defs>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e8c98a"/><stop offset="45%" stop-color="#f6e3b6"/>
+          <stop offset="70%" stop-color="#c9a24a"/><stop offset="100%" stop-color="#e9c58e"/>
+        </linearGradient>
+      </defs>
+      <circle class="mono-ring" cx="100" cy="100" r="82"/>
+      <circle class="mono-ring mono-ring--2" cx="100" cy="100" r="70"/>
+      <path class="mono-letter" d="M74 132 V78 q0-16 16-16 t16 16 v54"/>
+      <path class="mono-letter" d="M126 68 v46 q0 18-18 18"/>
+      <circle class="mono-dot" cx="100" cy="150" r="3.2"/>
+    </svg>
+    <p class="loader__word">عبدالقادر <span>&amp;</span> نور</p>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+  </div>
+</div>
+
+<!-- ============ AMBIENT LAYERS ============ -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-texture"></div>
+  <div class="bg-gradient"></div>
+  <div class="rays"><i></i><i></i><i></i></div>
+  <div class="orb orb--1"></div>
+  <div class="orb orb--2"></div>
+  <div class="orb orb--3"></div>
+</div>
+<canvas id="particles" class="particles" aria-hidden="true"></canvas>
+<div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<!-- ============ MUSIC TOGGLE ============ -->
+<button class="music-btn" id="musicBtn" type="button" aria-pressed="false">
+  <img src="icons/music.svg" alt="" width="20" height="20" />
+  <span id="musicLabel">تشغيل الموسيقى</span>
+</button>
+<audio id="audio" src="music/luxury-theme.mp3" loop preload="auto"></audio>
+
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- ============ GATE / FIRST SCREEN ============ -->
+<section class="gate" id="gate">
+  <div class="frame frame--gate">
+    <img class="ornament ornament--full" src="images/ornament-corner.png" alt="" width="947" height="956" />
+    <div class="gate__content">
+      <p class="eyebrow">دعوة خاصة</p>
+      <h1 class="basmala">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</h1>
+      <img class="divider" src="images/divider.png" alt="" width="834" height="146" />
+      <p class="gate__sub">حفل خطوبة</p>
+      <p class="gate__names">عبدالقادر &amp; نور</p>
+      <button class="btn-gold reveal-late" id="openBtn" type="button">
+        <span class="btn-gold__shine" aria-hidden="true"></span>
+        <span class="btn-gold__text">فتح الدعوة</span>
+      </button>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</section>
+
+<!-- ============ MAIN ============ -->
+<main id="main" class="main" aria-hidden="true">
+
+  <!-- HERO -->
+  <section class="section hero" id="hero">
+    <div class="glass glass--hero reveal">
+      <img class="ornament ornament--full ornament--soft" src="images/ornament-corner.png" alt="" width="947" height="956" loading="lazy" />
+      <p class="hero__lead reveal">يسرنا دعوتكم لحضور حفل خطوبة</p>
+      <div class="names">
+        <div class="name reveal">
+          <span class="name__title">الدكتور</span>
+          <h2 class="name__text">عبدالقادر</h2>
+        </div>
+        <div class="name__heart reveal" aria-hidden="true">
+          <svg viewBox="0 0 32 29"><path d="M16 28S1 18.6 1 9.9C1 4.9 5 1 9.8 1c3 0 5.2 1.6 6.2 3.4C17 2.6 19.2 1 22.2 1 27 1 31 4.9 31 9.9 31 18.6 16 28 16 28z"/></svg>
+        </div>
+        <div class="name reveal">
+          <span class="name__title">المهندسة</span>
+          <h2 class="name__text">نور</h2>
+        </div>
+      </div>
+      <img class="divider reveal" src="images/divider.png" alt="" width="834" height="146" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- QURAN -->
+  <section class="section" id="verse">
+    <div class="glass verse reveal">
+      <span class="verse__mark" aria-hidden="true">﴿</span>
+      <p class="verse__text">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً</p>
+      <span class="verse__mark verse__mark--end" aria-hidden="true">﴾</span>
+      <p class="verse__ref">الروم : ٢١</p>
+    </div>
+  </section>
+
+  <!-- DATE -->
+  <section class="section" id="date">
+    <h3 class="section__title reveal">موعد الحفل</h3>
+    <div class="glass date-card reveal">
+      <img class="icon-lg" src="icons/calendar.svg" alt="" width="72" height="72" loading="lazy" />
+      <p class="date-card__day">الخميس</p>
+      <p class="date-card__full">٣ سبتمبر ٢٠٢٦</p>
+      <p class="date-card__latin">3 September 2026 · 5:00 PM</p>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="section" id="countdown">
+    <h3 class="section__title reveal">العد التنازلي</h3>
+    <div class="count reveal" id="count">
+      <div class="count__unit" data-unit="days">
+        <div class="count__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg" cx="60" cy="60" r="52"/>
+          </svg>
+          <span class="count__num">٠٠</span>
+        </div>
+        <span class="count__label">يوم</span>
+      </div>
+      <div class="count__unit" data-unit="hours">
+        <div class="count__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg" cx="60" cy="60" r="52"/>
+          </svg>
+          <span class="count__num">٠٠</span>
+        </div>
+        <span class="count__label">ساعة</span>
+      </div>
+      <div class="count__unit" data-unit="minutes">
+        <div class="count__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg" cx="60" cy="60" r="52"/>
+          </svg>
+          <span class="count__num">٠٠</span>
+        </div>
+        <span class="count__label">دقيقة</span>
+      </div>
+      <div class="count__unit" data-unit="seconds">
+        <div class="count__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg" cx="60" cy="60" r="52"/>
+          </svg>
+          <span class="count__num">٠٠</span>
+        </div>
+        <span class="count__label">ثانية</span>
+      </div>
+    </div>
+    <p class="count__done" id="countDone">بدأ الحفل — أهلاً وسهلاً بكم</p>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section" id="location">
+    <h3 class="section__title reveal">مكان الحفل</h3>
+    <div class="glass place reveal">
+      <img class="icon-lg" src="icons/pin.svg" alt="" width="72" height="72" loading="lazy" />
+      <p class="place__city">المسيب</p>
+      <p class="place__area">الجيلاوية</p>
+      <p class="place__venue">مزرعة الياسمين الأبيض</p>
+      <a class="btn-gold btn-gold--outline" href="https://maps.app.goo.gl/9bH2BWeyaM72Ye58A?g_st=ic" target="_blank" rel="noopener">
+        <span class="btn-gold__shine" aria-hidden="true"></span>
+        <span class="btn-gold__text">فتح الموقع على الخرائط</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section" id="program">
+    <h3 class="section__title reveal">برنامج الحفل</h3>
+    <ol class="timeline">
+      <li class="timeline__item reveal">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="glass timeline__card">
+          <img src="icons/home.svg" alt="" width="34" height="34" loading="lazy" />
+          <div>
+            <p class="timeline__name">استقبال الضيوف</p>
+            <p class="timeline__time">3:30 PM</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="glass timeline__card">
+          <img src="icons/car.svg" alt="" width="34" height="34" loading="lazy" />
+          <div>
+            <p class="timeline__name">الانطلاق إلى المزرعة</p>
+            <p class="timeline__time">4:00 PM</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="glass timeline__card">
+          <img src="icons/quran.svg" alt="" width="34" height="34" loading="lazy" />
+          <div>
+            <p class="timeline__name">عقد القرآن</p>
+            <p class="timeline__time">5:00 PM</p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- INVITATION CARD -->
+  <section class="section" id="card">
+    <div class="invite reveal" id="inviteCard">
+      <div class="invite__inner">
+        <img class="ornament ornament--full" src="images/ornament-corner.png" alt="" width="947" height="956" loading="lazy" />
+        <div class="invite__petals" aria-hidden="true"></div>
+        <p class="invite__eyebrow">بطاقة الدعوة</p>
+        <div class="invite__hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span></div>
+        <p class="invite__msg">يسرنا دعوتكم لمشاركتنا فرحتنا في هذه المناسبة السعيدة.</p>
+        <p class="invite__msg invite__msg--accent">وجودكم هو أجمل هدية لنا.</p>
+        <img class="divider" src="images/divider.png" alt="" width="834" height="146" loading="lazy" />
+        <p class="invite__sign">عبدالقادر &amp; نور</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="section" id="notes">
+    <h3 class="section__title reveal">تنويهات</h3>
+    <ul class="notes">
+      <li class="glass note reveal"><span class="note__check" aria-hidden="true"></span><p>يرجى الحضور قبل موعد عقد القرآن.</p></li>
+      <li class="glass note reveal"><span class="note__check" aria-hidden="true"></span><p>نتشرف بحضوركم ومشاركتكم فرحتنا.</p></li>
+      <li class="glass note reveal"><span class="note__check" aria-hidden="true"></span><p>نرجو تأكيد الحضور.</p></li>
+    </ul>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section" id="rsvp">
+    <h3 class="section__title reveal">تأكيد الحضور</h3>
+    <div class="glass rsvp reveal">
+      <p class="rsvp__hint">يسعدنا تأكيد حضوركم عبر واتساب</p>
+      <a class="btn-wa" id="waBtn" href="https://wa.me/9647702282219?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%8C%20%D8%A3%D8%A4%D9%83%D8%AF%20%D8%AD%D8%B6%D9%88%D8%B1%D9%8A%20%D8%AD%D9%81%D9%84%20%D8%A7%D9%84%D8%AE%D8%B7%D9%88%D8%A8%D8%A9%20%D9%85%D8%A8%D8%A7%D8%B1%D9%83%20%D9%84%D9%83%D9%85" target="_blank" rel="noopener">
+        <img src="icons/whatsapp.svg" alt="" width="26" height="26" loading="lazy" />
+        <span>تأكيد الحضور</span>
+      </a>
+      <p class="rsvp__phone" dir="ltr">07702282219</p>
+    </div>
+  </section>
+
+  <!-- ENDING -->
+  <section class="section ending" id="ending">
+    <div class="ending__lights" aria-hidden="true"></div>
+    <h3 class="ending__line reveal">حضوركم يزين فرحتنا</h3>
+    <div class="ending__names reveal">
+      <p>عبدالقادر</p>
+      <span class="ending__amp">&amp;</span>
+      <p>نور</p>
+    </div>
+    <img class="divider reveal" src="images/divider.png" alt="" width="834" height="146" loading="lazy" />
+    <p class="ending__foot reveal">٣ سبتمبر ٢٠٢٦ — مزرعة الياسمين الأبيض</p>
+  </section>
+
+  <footer class="footer">
+    <p>صُنعت بمحبة لمناسبة عبدالقادر &amp; نور</p>
+  </footer>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
